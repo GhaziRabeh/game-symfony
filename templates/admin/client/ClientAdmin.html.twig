@@ -1,0 +1,35 @@
+
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Client{% endblock %}
+
+{% block body %}
+
+<main id="main" class="main">
+
+
+<h2>Client List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+         
+        
+        {% else %}
+        <tr>
+            <td colspan="5">No clients found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</main>
+{% endblock %}

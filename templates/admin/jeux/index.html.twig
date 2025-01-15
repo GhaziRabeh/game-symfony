@@ -1,0 +1,52 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Jeux index{% endblock %}
+
+{% block body %}
+<main id="main" class="main">
+
+    <h1 class="mb-4">List of Jeux</h1>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Rate</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jeux in jeuxes %}
+            <tr>
+                <td>{{ jeux.id }}</td>
+                <td>{{ jeux.name }}</td>
+                <td>{{ jeux.description }}</td>
+                <td>
+                    <!-- Display the image -->
+                    <img src="{{ asset('uploads/images/' ~ jeux.imageUrl) }}" alt="{{ jeux.name }}" style="max-width: 100px; max-height: 100px;">
+                </td>
+                <td>{{ jeux.price }}</td>
+                <td>{{ jeux.rate }}</td>
+                <td>{{ jeux.quantity }}</td>
+                <td>
+                    <a href="{{ path('app_jeux_show', {'id': jeux.id}) }}" class="btn btn-info btn-sm">Show</a>
+                    <a href="{{ path('app_jeux_edit', {'id': jeux.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8" class="text-center">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_jeux_new') }}" class="btn btn-primary">Create New</a>
+
+</main>
+{% endblock %}

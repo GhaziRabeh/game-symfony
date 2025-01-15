@@ -1,0 +1,28 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Edit Jeux{% endblock %}
+
+{% block body %}
+<main id="main" class="main">
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Edit Jeux</h1>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Edit Jeux Information</h5>
+            </div>
+            <div class="card-body">
+                {{ include('admin/jeux/_form.html.twig', {'button_label': 'Update'}) }}
+
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="{{ path('app_jeux_index') }}" class="btn btn-secondary">Back to List</a>
+                </div>
+
+                <hr>
+
+                {{ include('admin/jeux/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

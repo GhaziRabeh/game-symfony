@@ -1,0 +1,42 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+<main id="main" class="main">
+
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Create New Category</h1>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Category Form</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {{ form_start(form) }}
+
+                    <div class="mb-3">
+                        {{ form_label(form.name, 'Category Name', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Enter category name'}}) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Enter description'}}) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success">Save Category</button>
+                        <a href="{{ path('app_category_index') }}" class="btn btn-secondary">Back to List</a>
+                    </div>
+
+                    {{ form_end(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+    </main>
+{% endblock %}

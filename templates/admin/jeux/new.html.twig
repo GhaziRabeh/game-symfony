@@ -1,0 +1,79 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+<main id="main" class="main">
+
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Create New Category</h1>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Game Form</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {{ form_start(form) }}
+                        <div class="mb-3">
+                        {{ form_label(form.category, 'Category', {'label_attr': {'class': 'form-label'}}) }}
+                            {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(form.category) }}
+                        </div>
+
+
+
+
+
+
+                    <div class="mb-3">
+                        {{ form_label(form.name, 'Game Name', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Enter game name'}}) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Enter description'}}) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+
+
+                <div class="mb-3">
+                    {{ form_label(form.image_url, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.image_url, {'attr': {'class': 'form-control', 'type': 'file'}}) }}
+                    {{ form_errors(form.image_url) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.price, 'Price', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.price, {'attr': {'class': 'form-control', 'type': 'number', 'placeholder': 'Enter price', 'step': '0.01'}}) }}
+                    {{ form_errors(form.price) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.rate, 'Rate', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.rate, {'attr': {'class': 'form-control', 'type': 'number', 'placeholder': 'Enter rate', 'step': '0.01'}}) }}
+                    {{ form_errors(form.rate) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.quantity, 'Quantity', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.quantity, {'attr': {'class': 'form-control', 'type': 'number', 'placeholder': 'Enter quantity'}}) }}
+                    {{ form_errors(form.quantity) }}
+                </div>
+
+
+
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success">Save Game</button>
+                        <a href="{{ path('app_jeux_index') }}" class="btn btn-secondary">Back to List</a>
+                    </div>
+
+                    {{ form_end(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+    </main>
+{% endblock %}
